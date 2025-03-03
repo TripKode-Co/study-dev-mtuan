@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql:8
+    container_name: studydev-db
+    networks:
+      - docker-study
+    volumes:
+      - db-store:/var/lib/mysql
+
+networks:
+  docker-study:
+
+#docker compose up => only apply with configuration file named: "docker-compose.yml"
