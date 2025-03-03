@@ -1,0 +1,6 @@
+[GIT]
+- git branch => check current branch
+- git branch <new-branch> => create new branch [<prefix>/<name|desc>
+- git switch <branch-name> => change branch
+- git status => check status git of project
+- git add <path-to-file> => add file
