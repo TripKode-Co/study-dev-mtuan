@@ -1,0 +1,10 @@
+INSERT INTO roles(name) VALUES ('Nhan vien');
+INSERT INTO roles(name) VALUES ('Nhan vien tam thoi');
+INSERT INTO roles(name) VALUES ('Thuc tap sinh');
+INSERT INTO roles(name) VALUES ('Giam doc');
+INSERT INTO roles(name) VALUES ('Pho giam doc');
+INSERT INTO roles(name) VALUES ('Quan ly cua hang');
+INSERT INTO roles(name) VALUES ('Quan ly nhan su');
+INSERT INTO roles(name) VALUES ('Bao ve');
+INSERT INTO roles(name) VALUES ('Thu ky');
+INSERT INTO roles(name) VALUES ('Kiem toan');

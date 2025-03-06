@@ -1,0 +1,1 @@
+UPDATE roles SET name = 'Nhan vien tap su' WHERE id = 2;

@@ -1,0 +1,1 @@
+UPDATE permissions SET name = 'remove' WHERE name = 'delete';
