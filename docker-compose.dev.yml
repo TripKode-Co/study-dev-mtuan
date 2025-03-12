@@ -2,12 +2,53 @@ services:
   db:
     image: mysql:8
     container_name: studydev-db
+    ports:
+      - 3306:3306
     networks:
       - docker-study
     volumes:
       - db-store:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+  php:
+    build:
+      context: ./.docker/php
+      dockerfile: Dockerfile
+    container_name: studydev-app
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - "./:/var/www/html"
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - db
+    networks:
+          - docker-study
+  nginx:
+    container_name: studydev-nginx
+    build:
+      context: ./.docker/nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - "./:/var/www/html"
+      - ./.docker/nginx/includes/:/etc/nginx/includes/:rw,cached
+      - ./.docker/nginx/templates/:/etc/nginx/templates/:rw,cached
+    networks:
+      - docker-study
+   
+
+volumes:
+  db-store:
+    driver: local
 
 networks:
   docker-study:
 
 #docker compose up => only apply with configuration file named: "docker-compose.yml"
+#docker compose -f <path-to-configuration-file> up => run docker configuration with specific file
+#docker compose up -d => <-d> help 
